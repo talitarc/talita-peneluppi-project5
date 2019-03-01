@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import firebase from './firebase.js';
 import Header from './components/header/Header.js';
 import DisplayImg from './components/display-content/DisplayImg.js';
 import DisplayVideo from './components/display-content/DisplayVideo.js';
+// import DisplaySaved from './components/display-content/DisplaySaved.js';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       apod: [],
-      chosenDate: ''
+      chosenDate: '',
+      savedAPOD: []
     };
   }
   // create a constructor and call super
@@ -20,6 +23,37 @@ class App extends Component {
   // listen when button is clicked
 
   // fire the call to the NASA API - today is the default
+
+  handleSave = (event) => {
+    event.preventDefault();
+
+    const dbRef = firebase.database().ref();
+    
+    dbRef.push(this.state.apod)
+    console.log(this.state.savedAPOD)
+  }
+
+  componentDidMount(){
+    const dbRef = firebase.database().ref();
+
+    dbRef.on('value', response => {
+      const newState = [];
+      const data = response.val();
+
+      for (let key in data) {
+        newState.push({
+          key: key,
+          title: data[key],
+        })
+
+        // console.log(newState)
+
+        this.setState({
+          savedAPOD: newState
+        })
+      }
+    })
+  }
 
   handleChange = (event) => {
     this.setState({
@@ -69,16 +103,6 @@ class App extends Component {
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
         />
-        {/* <header>
-          <h1>Astronomy Picture of the Day</h1>
-          <p>Choose a date and hit the button to see it:</p>
-
-          <form onSubmit={this.handleSubmit}>
-              <input type="date" id="selectDate" min="1995-06-16" onChange={this.handleChange}></input>
-              <button>Show me!</button>
-          </form>
-        </header> */}
-
       
         {
           this.state.apod.media_type === "image" ? (
@@ -88,6 +112,7 @@ class App extends Component {
               date={this.state.apod.date}
               img={this.state.apod.hdurl}
               description={this.state.apod.explanation}
+              handleSave={this.handleSave}
             />
           ) : (
             <DisplayVideo
@@ -96,11 +121,24 @@ class App extends Component {
               date={this.state.apod.date}
               video={this.state.apod.url}
               description={this.state.apod.explanation}
+              handleSave={this.handleSave}
             />
           )
         }
-          
+        <div>
+          <h2>Saved items:</h2>
+          {
+            this.state.savedAPOD.map((item) => {
+              return (
+                <div key={item.key}>
+                  <a href={item.title.date}>{item.title.title}</a>
+                </div>
+              )
+            })
+          }
+        </div>
         
+          
         {/* Main.js */}
         {/* Map state to get title, picture and description */}
         {/* Create a div to show the title, picture and description */}

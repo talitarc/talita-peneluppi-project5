@@ -2,11 +2,15 @@ import React from 'react';
 
 const DisplayImg = props => {
     return (
-        <main>
+        <main className="wrapper">
             <h2>{props.title}</h2>
             <p>Date: {props.date}</p>
-            <img src={props.img} alt={props.title}></img>
+            <div>
+                <img src={props.img} alt={props.title}></img>
+            </div>
             <p>{props.description}</p>
+
+            <input type="submit" value="Save this content" onClick={props.handleSave}></input>
         </main>
     )
 }
