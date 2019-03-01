@@ -71,6 +71,15 @@ class App extends Component {
     this.getAPOD();
   }
 
+  saveDate = (event) => {
+    event.preventDefault();
+    this.setState({
+      chosenDate: event.target.id
+    })
+
+    this.getAPOD();
+  }
+
   // create a function to get APOD
   getAPOD = () => {
     axios ({
@@ -89,6 +98,11 @@ class App extends Component {
     }).catch(function(error){
       alert("Server error. Please try again later.")
     });
+  }
+
+  removeItem = (itemKey) => {
+    const dbRef = firebase.database().ref(itemKey);
+    dbRef.remove();
   }
 
   // change the state (setState) with the api response
@@ -131,7 +145,8 @@ class App extends Component {
             this.state.savedAPOD.map((item) => {
               return (
                 <div key={item.key}>
-                  <a href={item.title.date}>{item.title.title}</a>
+                  <button id={item.title.date} href="#" onClick={this.saveDate}>{item.title.title}</button>
+                  <button onClick={() => {this.removeItem(item.key)}}>Remove {item.title.title}</button>
                 </div>
               )
             })
