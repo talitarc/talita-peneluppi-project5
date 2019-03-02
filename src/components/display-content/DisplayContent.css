@@ -66,3 +66,31 @@ main input:focus {
     text-transform: uppercase;
     font-weight: bold;
 }
+
+/* IPAD STYLES */
+
+@media (min-width: 768px) {
+    main input {
+        padding: 2% 7%;
+    }
+
+    .savedBox {
+        flex-direction: row;
+        margin: 5% 0;
+    }
+
+    .savedItem {
+        flex-basis: 2;
+        width: 60%;
+        padding: 4%;
+    }
+
+    .deleteItem {
+        flex-basis: 1;
+        width: 40%;
+
+        margin-top: 0;
+        margin-left: 2%;
+        padding: 2%;
+    }
+}
