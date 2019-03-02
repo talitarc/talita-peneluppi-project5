@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import './Button.css'
 
 const Button = props => {
     return (
-        <button>{props.value}</button>
+        <button className={process.className}>{props.value}</button>
     )
 }
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './DisplayContent.css';
 
 class DisplaySaved extends Component {
     render() {

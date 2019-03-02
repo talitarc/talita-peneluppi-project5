@@ -1,0 +1,68 @@
+@import '../../App.css';
+
+main h2,
+.displaySaved h2 {
+    font-family: 'Amatic SC', cursive;
+    font-size: 2.5rem;
+}
+
+main p {
+    line-height: 2rem;
+    text-align: left;
+}
+
+main input {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.3rem;
+    background-color:#5d5790;
+    color: #fcf7f7;
+    border: 2px solid #5d5790;
+    border-radius: 5px;
+    padding: 5% 10%;
+}
+
+main input:hover,
+main input:focus-within,
+main input:focus {
+    background-color: transparent;
+}
+
+.savedBox {
+    display: flex;
+    flex-direction: column;
+    margin: 10% 0;
+}
+
+.savedItem,
+.deleteItem {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.savedItem {
+    font-size: 1.6rem;
+    border: 2px solid #5d5790;
+    border-radius: 5px;
+    padding: 5% 10%;
+    color: #5d5790;
+}
+
+.deleteItem {
+    font-size: 1rem;
+    margin-top: 2%;
+    color: #fcf7f7;
+    background-color: #ff5a5f;
+    border: 2px solid #ff5a5f;
+    border-radius: 5px;
+    padding: 5%;
+}
+
+.deleteItem:hover,
+.deleteItem:focus-within,
+.deleteItem:focus {
+    background-color: transparent;
+}
+
+.deleteItem span {
+    text-transform: uppercase;
+    font-weight: bold;
+}

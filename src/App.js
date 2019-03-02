@@ -117,13 +117,14 @@ class App extends Component {
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
         />
-      
+
+
         {
           this.state.apod.media_type === "image" ? (
             <DisplayImg
               key={this.state.apod.date}
               title={this.state.apod.title}
-              date={this.state.apod.date}
+              // date={this.state.apod.date}
               img={this.state.apod.hdurl}
               description={this.state.apod.explanation}
               handleSave={this.handleSave}
@@ -132,21 +133,22 @@ class App extends Component {
             <DisplayVideo
               key={this.state.apod.date}
               title={this.state.apod.title}
-              date={this.state.apod.date}
+              // date={this.state.apod.date}
               video={this.state.apod.url}
               description={this.state.apod.explanation}
               handleSave={this.handleSave}
             />
           )
         }
-        <div>
+        
+        <div className="wrapper displaySaved">
           <h2>Saved items:</h2>
           {
             this.state.savedAPOD.map((item) => {
               return (
-                <div key={item.key}>
-                  <button id={item.title.date} href="#" onClick={this.saveDate}>{item.title.title}</button>
-                  <button onClick={() => {this.removeItem(item.key)}}>Remove {item.title.title}</button>
+                <div className="savedBox" key={item.key}>
+                  <button className="savedItem" id={item.title.date} onClick={this.saveDate}>{item.title.title}</button>
+                  <button className="deleteItem" onClick={() => {this.removeItem(item.key)}}><span>Remove:</span> {item.title.title}</button>
                 </div>
               )
             })
