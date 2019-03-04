@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/talita-peneluppi-project5/static/css/main.24dee368.chunk.css"
   },
   {
-    "revision": "5be37b96a624e9a353c2989b0d87c430",
+    "revision": "870f15434d5a6eb69280bc57ad3531e7",
     "url": "/talita-peneluppi-project5/index.html"
   }
 ];

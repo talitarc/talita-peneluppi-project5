@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/talita-peneluppi-project5/precache-manifest.4c9fdace943b7503455ecfa2965283a6.js"
+  "/talita-peneluppi-project5/precache-manifest.69619fb08b37e58f2c2aa2cab59a8550.js"
 );
 
 workbox.clientsClaim();
