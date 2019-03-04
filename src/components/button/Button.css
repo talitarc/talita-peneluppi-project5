@@ -32,3 +32,17 @@ header button:focus {
         padding: 2% 7%;
     }
 }
+
+/* SMALL SCREEN STYLES */
+@media (min-width: 992px) {
+    header button {
+        font-size: 1.3rem;
+    }
+}
+
+/* LARGE SCREENS STYLES */
+@media (min-width: 1200px) {
+    header button {
+        font-size: 1.5rem;
+    }
+}

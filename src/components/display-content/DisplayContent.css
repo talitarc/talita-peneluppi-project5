@@ -7,8 +7,25 @@ main h2,
 }
 
 main p {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.3rem;
     line-height: 2rem;
     text-align: left;
+}
+
+.containerVideo {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56%;
+}
+
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 main input {
@@ -72,6 +89,10 @@ main input:focus {
 @media (min-width: 768px) {
     main input {
         padding: 2% 7%;
+    }
+
+    main img {
+        width: 60%;
     }
 
     .savedBox {
