@@ -5,7 +5,6 @@ const DisplayImg = props => {
     return (
         <main className="wrapper">
             <h2>{props.title}</h2>
-            {/* <p>Date: {props.date}</p> */}
             <div className="containerPhoto">
                 <img src={props.img} alt={props.title}></img>
             </div>

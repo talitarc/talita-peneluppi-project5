@@ -5,7 +5,6 @@ const DisplayVideo = props => {
     return (
         <main className="wrapper">
             <h2>{props.title}</h2>
-            {/* <p>Date: {props.date}</p> */}
             <div className="containerVideo">
                 <iframe className="video" allowFullScreen src={props.video} title={props.title}></iframe>
             </div>

@@ -111,7 +111,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* Header.js */}
+        {/* Create and import Header.js */}
         {/* Create an H1 to hold website's name */}
         {/* Create a button - when clicks it will fire the API call */}
         <Header
@@ -119,7 +119,7 @@ class App extends Component {
           handleChange={this.handleChange}
         />
 
-        {/* DisplayContent*/}
+        {/* Create and import files from DisplayContent folder*/}
         {/* Create a div to show the title, picture and description */}
         {
           this.state.apod.media_type === "image" ? (
